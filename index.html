@@ -14,10 +14,42 @@
             <img src="/img/open-book.png" width="50px" alt="book-icon" class="logo">
             <h1 class="title">Library App</h1>
         </div>
-        <div class="header-right">
-            <button>New Book</button>
+        <div class="header-right flex">
+            <button class="button new-btn flex" onclick=msg()> <span style="font-size: 2em; margin-bottom: 2.258px;">+</span> <span>New Book</span></button>
+            <button class="button rm-btn">Dark Mode</button>
         </div>
     </header>
-    <main></main>
+    <main>
+        <div class="book-container">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </main>
+
+    <!--- Popup Form --->
+    <div class="form-popup show" id="myForm">
+        <form class="form-container">
+            <h3>Add New Book</h3>
+           
+            <input type="text" placeholder="Title" name="book-title" required>
+
+            <input type="text" placeholder="Author" name="book-author" required>
+   
+            <input type="text" placeholder="Pages" name="book-page"required>
+
+            <div class="flex"> 
+                <span>Have you read it?</span>
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+            </div>
+           
+
+            <input class='button submit-btn' type="submit" value="Submit">
+        </form>
+
+    </div>
 </body>
 </html>

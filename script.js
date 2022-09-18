@@ -10,6 +10,3 @@ function Book(title, author, pages, isRead) {
 function addBookToLibrary(book) {
     myLibrary.push(book)
 };
-
-
-console.log(myLibrary)
