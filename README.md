@@ -17,3 +17,6 @@ A simple web app to store my readings progressed with a nice user interface
 ## What I Learned
 
 - in progressed
+
+## Acknowledgement
+- [Flaticon](https://www.flaticon.com/free-icons/book)
