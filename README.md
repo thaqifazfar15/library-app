@@ -12,7 +12,7 @@ A simple web app to store my readings progressed with a nice user interface
 
 ## Live Preview
 
-[Live Previwe](https://thaqifazfar15.github.io/library-app/)
+[Live Preview](https://thaqifazfar15.github.io/library-app/)
 
 ## What I Learned
 
