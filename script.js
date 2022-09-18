@@ -10,3 +10,17 @@ function Book(title, author, pages, isRead) {
 function addBookToLibrary(book) {
     myLibrary.push(book)
 };
+
+
+handleAddBook = () => {
+    const popupMenu = document.getElementById("myForm");
+    popupMenu.classList.add("show");
+
+    document.getElementById("overlay").classList.toggle("show");
+
+}
+
+turnOffOverlay = () => {
+    document.getElementById("myForm").classList.toggle("show");
+    document.getElementById("overlay").classList.toggle("show");
+}

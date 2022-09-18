@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer ></script>
+    <script defer src="script.js" ></script>
 </head>
 <body>
     <header class="flex">
@@ -15,7 +15,7 @@
             <h1 class="title">Library App</h1>
         </div>
         <div class="header-right flex">
-            <button class="button new-btn flex" onclick=msg()> <span style="font-size: 2em; margin-bottom: 2.258px;">+</span> <span>New Book</span></button>
+            <button class="button new-btn flex" onclick=handleAddBook()> <span style="font-size: 2em; margin-bottom: 2.258px;">+</span> <span>New Book</span></button>
             <button class="button rm-btn">Dark Mode</button>
         </div>
     </header>
@@ -28,7 +28,7 @@
     </main>
 
     <!--- Popup Form --->
-    <div class="form-popup show" id="myForm">
+    <div class="form-popup hidden" id="myForm">
         <form class="form-container">
             <h3>Add New Book</h3>
            
@@ -41,15 +41,16 @@
             <div class="flex"> 
                 <span>Have you read it?</span>
                 <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
                 </label>
             </div>
            
-
             <input class='button submit-btn' type="submit" value="Submit">
         </form>
 
     </div>
+    <div id="overlay" class="hidden" onclick="turnOffOverlay()""></div> 
 </body>
 </html>
