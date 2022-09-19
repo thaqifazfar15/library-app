@@ -97,7 +97,7 @@ main > .book-container {
 
 main > .book-container > div {
   background-color: white;
-  height: 30.5em;
+  min-height: 34.5em;
   width: 18em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 12px;
@@ -105,6 +105,11 @@ main > .book-container > div {
   align-items: center;
   flex-direction: column;
   padding: 1.4em;
+}
+
+main > .book-container > div:hover {
+  scale: 1.02;
+  transition-duration: 0.2s;
 }
 
 main > .book-container > div > img {
@@ -125,6 +130,7 @@ main > .book-container > div > img {
   width: 100%;
   justify-content: space-between;
   margin-top: 0.25em;
+  margin-bottom: 1em;
 }
 
 .book-container > div > .book-read-status > label > input:checked + .slider {
@@ -134,13 +140,11 @@ main > .book-container > div > img {
 input:focus + .slider {
   box-shadow: 0 0 1px rgb(60, 223, 60);
 }
- {
-  background-color: green;
-}
 
 .book-container .book-info-left {
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .book-container .book-info-left > span {
@@ -153,12 +157,55 @@ input:focus + .slider {
   font-size: 1.4em;
 }
 .book-container .book-info-right {
-  margin-top: 0.15em;
+  width: auto;
 }
 
 .book-container .book-info-right > h7 {
   font-size: 1em;
   font-family: "Roboto Condensed", sans-serif;
+  text-align: end;
+}
+
+.book-container .book-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.book-container .book-buttons-container > button {
+  flex-grow: 1;
+}
+
+.book-container .book-buttons-container > button:nth-child(1) {
+  background-color: rgb(60, 223, 60);
+  color: white;
+  font-weight: bold;
+  padding-inline: 2.5em;
+}
+
+.book-container .book-buttons-container > button:nth-child(1):hover {
+  background-color: rgb(55, 208, 55);
+}
+.book-container .book-buttons-container > button:nth-child(1):active {
+  background-color: rgb(45, 185, 45);
+
+  box-shadow: 0 0 1px rgb(45, 185, 45);
+}
+
+.book-container .book-buttons-container > button:nth-child(2) {
+  background-color: rgba(255, 49, 49, 1);
+  color: white;
+  font-weight: bold;
+}
+
+.book-container .book-buttons-container > button:nth-child(2):hover {
+  background-color: rgb(214, 45, 45);
+}
+.book-container .book-buttons-container > button:nth-child(2):active {
+  background-color: rgb(182, 39, 39);
+
+  box-shadow: 0 0 1px rgb(182, 39, 39);
 }
 
 /* Popup Form */
