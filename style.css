@@ -127,6 +127,17 @@ main > .book-container > div > img {
   margin-top: 0.25em;
 }
 
+.book-container > div > .book-read-status > label > input:checked + .slider {
+  background-color: rgb(60, 223, 60);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(60, 223, 60);
+}
+ {
+  background-color: green;
+}
+
 .book-container .book-info-left {
   flex-direction: column;
   align-items: flex-start;
