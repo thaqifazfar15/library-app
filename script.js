@@ -45,7 +45,7 @@ function createBookCards(book, indexNumber) {
   divMain.dataset.indexNumber = indexNumber;
 
   let html = `
-  <img class="book-img" src="/img/naurto-cover.webp" alt="">
+  <img class="book-img" src="img/naurto-cover.webp" alt="">
   <div class="book-info flex">
       <div class="book-info-left flex">
           <h3>${book.title}</h3>
