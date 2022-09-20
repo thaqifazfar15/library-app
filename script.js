@@ -10,6 +10,8 @@ function Book(title, author, pages, isRead) {
 
 const Naruto = new Book("Naruto", "Kishimoto", "240", true);
 addBookToLibrary(Naruto);
+addBookToLibrary(Naruto);
+addBookToLibrary(Naruto);
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
@@ -34,7 +36,9 @@ function checkLibraryForBooks() {
 
   for (let i = 0; i < myLibrary.length; i++) {
     createBookCards(myLibrary[i], i);
+    changeBookBorder();
   }
+  handleDeleteEvent();
 }
 
 checkLibraryForBooks();
@@ -59,20 +63,23 @@ function createBookCards(book, indexNumber) {
   <div class="flex book-read-status"> 
       <span>Finish Reading</span>
       <label class="switch">
-          <input type="checkbox" ${book.isRead ? "checked" : ""}>
+          <input class="book-checkbox" type="checkbox" onclick="changeBookBorder()" ${
+            book.isRead ? "checked" : ""
+          }>
           <span class="slider round"></span>
       </label>
       </label>
   </div>
   <div class="book-buttons-container">
-      <button class="button"> Edit</button>
-      <button class="button">Delete</button>
+      <button class="button" id="edit-btn" data-index-number=${indexNumber}> Edit</button>
+      <button class="button" id="delete-btn" data-index-number=${indexNumber}>Delete</button>
   </div>           `;
 
   divMain.innerHTML = html;
   bookContainer[0].appendChild(divMain);
 }
 
+//receive value from new book form
 const formContainer = document.getElementsByClassName("form-container");
 formContainer[0].addEventListener("submit", (e) => {
   e.preventDefault();
@@ -96,6 +103,7 @@ formContainer[0].addEventListener("submit", (e) => {
     bookPages.value,
     bookIsRead.checked
   );
+
   addBookToLibrary(newBook);
   checkLibraryForBooks();
 
@@ -112,12 +120,38 @@ const bookCover = document.getElementsByClassName("book-img");
 
 function showImage() {
   for (let i = 0; i < bookCover.length; i++) {
-    bookCover[0].style.maxHeight = "22em";
+    bookCover[i].style.maxHeight = "22em";
   }
 }
 
 function hideImage() {
   for (let i = 0; i < bookCover.length; i++) {
-    bookCover[0].style.maxHeight = "0";
+    bookCover[i].style.maxHeight = "0";
+  }
+}
+
+function changeBookBorder() {
+  const bookCheckboxes = document.getElementsByClassName("book-checkbox");
+  const bookImages = document.getElementsByClassName("book-img");
+
+  for (let i = 0; i < bookCheckboxes.length; i++) {
+    bookCheckboxes[i].checked
+      ? (bookImages[i].style.border = "2px solid rgb(60, 223, 60) ")
+      : (bookImages[i].style.border = "2px solid rgb(54, 39, 39)");
+  }
+}
+
+function deleteBook(bookIndex) {
+  myLibrary.splice(bookIndex, 1);
+}
+
+function handleDeleteEvent() {
+  const deleteButtons = document.querySelectorAll("#delete-btn");
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener("click", () => {
+      buttonIndex = deleteButtons[i].dataset.indexNumber;
+      deleteBook(buttonIndex);
+      checkLibraryForBooks();
+    });
   }
 }

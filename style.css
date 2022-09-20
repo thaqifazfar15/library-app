@@ -82,7 +82,7 @@ header > .header-right > button:first-child {
 main {
   height: auto;
   width: 100%;
-  padding: 4em 20em 5em 20em;
+  padding: 3em 20em 5em 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,6 +93,8 @@ main > .main-icons {
   justify-content: end;
   height: 2em;
   gap: 0.6em;
+  margin-bottom: 1em;
+  padding-inline: 8em;
 }
 
 main > .book-container {
