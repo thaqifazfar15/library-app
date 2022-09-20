@@ -82,10 +82,17 @@ header > .header-right > button:first-child {
 main {
   height: auto;
   width: 100%;
-  padding: 5em 20em;
+  padding: 4em 20em 5em 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main > .main-icons {
+  display: flex;
+  justify-content: end;
+  height: 2em;
+  gap: 0.6em;
 }
 
 main > .book-container {
@@ -97,7 +104,7 @@ main > .book-container {
 
 main > .book-container > div {
   background-color: white;
-  min-height: 34.5em;
+  min-height: 12em;
   width: 18em;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 12px;
@@ -113,10 +120,12 @@ main > .book-container > div:hover {
 }
 
 main > .book-container > div > img {
-  height: 22em;
+  max-height: 22em;
   width: 15.5em;
   object-fit: cover;
   border: 2px solid rgb(54, 39, 39);
+  animation-duration: 2s;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .book-container > div > .book-info {
@@ -238,7 +247,7 @@ input:focus + .slider {
   align-items: center;
   gap: 1.3em;
   padding: 2em 1.5em;
-  height: 26em;
+  height: auto;
   width: 20em;
   background-color: rgb(241, 241, 241);
   border-radius: 10px;
@@ -326,3 +335,11 @@ input:checked + .slider:before {
 }
 
 /*   x    Popup Form     x  */
+
+/*   Show and Hide Image   */
+
+div.book-container > div {
+  animation-duration: 2s;
+}
+
+/*  x  Show and Hide Image  x */
