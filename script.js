@@ -203,4 +203,8 @@ function handleEditButton(button) {
 
 function toggleDarkMode() {
   document.body.classList.toggle("dark-theme");
+  currentLogo = document.getElementsByClassName("logo")[0];
+  currentLogo.src.toString().includes("img/open-book.png")
+    ? (currentLogo.src = "img/open-book-dark.png")
+    : (currentLogo.src = "img/open-book.png");
 }

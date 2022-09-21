@@ -140,7 +140,7 @@ main > .book-container > div > img {
 .book-container > div > .book-read-status {
   width: 100%;
   justify-content: space-between;
-  margin-top: 0.25em;
+  margin-top: 0.6em;
   margin-bottom: 1em;
 }
 
@@ -182,6 +182,7 @@ input:focus + .slider {
   display: flex;
   justify-content: space-between;
   gap: 1em;
+  margin-top: auto;
 }
 
 .book-container .book-buttons-container > button {
@@ -345,7 +346,10 @@ div.book-container > div {
 }
 
 /*  x  Show and Hide Image  x */
-
+/*  */
+/*  */
+/*  */
+/*  */
 /*     Dark Theme     */
 
 .dark-theme {
@@ -355,6 +359,25 @@ div.book-container > div {
 
 body.dark-theme img {
   filter: brightness(0.7) contrast(1.25);
+}
+
+body.dark-theme > header button {
+  background-color: #1f1d1d;
+  color: #efefef;
+
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.4) 0px 3px 7px -3px;
+}
+
+body.dark-theme > header button:hover {
+  background-color: #2c2929;
+
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 16px -2px,
+    rgba(0, 0, 0, 0.4) 0px 3px 10px -3px;
+}
+
+body.dark-theme > header button:active {
+  background-color: #4e4e4e;
 }
 
 body.dark-theme svg path {
