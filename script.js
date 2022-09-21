@@ -10,8 +10,6 @@ function Book(title, author, pages, isRead) {
 
 const Naruto = new Book("Naruto", "Kishimoto", "240", true);
 addBookToLibrary(Naruto);
-addBookToLibrary(Naruto);
-addBookToLibrary(Naruto);
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
@@ -25,8 +23,15 @@ handleAddBook = () => {
 };
 
 turnOffOverlay = () => {
-  document.getElementById("myForm").classList.toggle("show");
   document.getElementById("overlay").classList.toggle("show");
+
+  if (document.getElementById("myForm").classList.contains("show")) {
+    document.getElementById("myForm").classList.toggle("show");
+  }
+
+  if (document.getElementById("edit-form").classList.contains("show")) {
+    document.getElementById("edit-form").classList.toggle("show");
+  }
 };
 
 // loop through array, and append all book to container
@@ -43,6 +48,7 @@ function checkLibraryForBooks() {
 
 checkLibraryForBooks();
 
+// create new book cards and append it to html
 function createBookCards(book, indexNumber) {
   const bookContainer = document.getElementsByClassName("book-container");
   const divMain = document.createElement("div");
@@ -71,7 +77,7 @@ function createBookCards(book, indexNumber) {
       </label>
   </div>
   <div class="book-buttons-container">
-      <button class="button" id="edit-btn" data-index-number=${indexNumber}> Edit</button>
+      <button class="button" id="edit-btn" data-index-number=${indexNumber} onclick="handleEditButton(this)"> Edit</button>
       <button class="button" id="delete-btn" data-index-number=${indexNumber}>Delete</button>
   </div>           `;
 
@@ -118,6 +124,7 @@ formContainer[0].addEventListener("submit", (e) => {
 
 const bookCover = document.getElementsByClassName("book-img");
 
+//show book cards with image
 function showImage() {
   for (let i = 0; i < bookCover.length; i++) {
     bookCover[i].style.maxHeight = "22em";
@@ -130,6 +137,7 @@ function hideImage() {
   }
 }
 
+// make border green when checkbox is true otherwise black
 function changeBookBorder() {
   const bookCheckboxes = document.getElementsByClassName("book-checkbox");
   const bookImages = document.getElementsByClassName("book-img");
@@ -154,4 +162,45 @@ function handleDeleteEvent() {
       checkLibraryForBooks();
     });
   }
+}
+
+editButtonCurrentIndex = null;
+
+//receive data from edit form popup
+const editContainer = document.getElementById("edit-form-container");
+editContainer.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const bookTitle = document.getElementById("book-title-edit");
+  const bookAuthor = document.getElementById("book-author-edit");
+  const bookPages = document.getElementById("book-pages-edit");
+
+  i = editButtonCurrentIndex;
+  currentBook = myLibrary[i];
+
+  currentBook.title = bookTitle.value;
+  currentBook.author = bookAuthor.value;
+  currentBook.pages = bookPages.value;
+
+  //reset form
+
+  bookTitle.value = "";
+  bookAuthor.value = "";
+  bookPages.value = "";
+
+  const editForm = document.getElementById("edit-form");
+  editForm.classList.toggle("hidden");
+
+  checkLibraryForBooks();
+});
+
+function handleEditButton(button) {
+  editButtonCurrentIndex = button.dataset.indexNumber;
+  const editForm = document.getElementById("edit-form");
+  editForm.classList.add("show");
+  document.getElementById("overlay").classList.toggle("show");
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-theme");
 }

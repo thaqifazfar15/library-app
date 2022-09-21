@@ -345,3 +345,82 @@ div.book-container > div {
 }
 
 /*  x  Show and Hide Image  x */
+
+/*     Dark Theme     */
+
+.dark-theme {
+  color: #efefef;
+  background-color: #111111;
+}
+
+body.dark-theme img {
+  filter: brightness(0.7) contrast(1.25);
+}
+
+body.dark-theme svg path {
+  fill: #efefef;
+}
+
+body.dark-theme > header {
+  background-color: rgb(19, 19, 19);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.4) 0px 3px 7px -3px;
+}
+
+body.dark-theme > main > div.book-container > div {
+  background-color: #2f2f2f;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 29px 0px;
+}
+
+body.dark-theme > main > div.book-container > div > div.book-info span {
+  color: #efefef56;
+}
+
+body.dark-theme
+  > main
+  > div.book-container
+  > div
+  > div.book-read-status
+  > label
+  > input
+  + .slider {
+  background-color: #111111;
+  box-shadow: none;
+}
+
+body.dark-theme
+  > main
+  > div.book-container
+  > div
+  > div.book-read-status
+  > label
+  > input:checked
+  + .slider {
+  background-color: rgba(0, 241, 0, 0.5);
+  box-shadow: none;
+}
+
+body.dark-theme > main > div.book-container > div #edit-btn {
+  background-color: rgba(0, 241, 0, 0.5);
+}
+
+body.dark-theme > main > div.book-container > div #edit-btn:hover {
+  background-color: rgba(0, 241, 0, 0.4);
+}
+
+body.dark-theme > main > div.book-container > div #edit-btn:active {
+  background-color: rgba(0, 241, 0, 0.35);
+}
+
+body.dark-theme > main > div.book-container > div #delete-btn {
+  background-color: rgba(175, 0, 0, 0.836);
+}
+
+body.dark-theme > main > div.book-container > div #delete-btn:hover {
+  background-color: rgba(175, 0, 0, 0.736);
+}
+
+body.dark-theme > main > div.book-container > div #delete-btn:active {
+  background-color: rgba(175, 0, 0, 0.6);
+}
+/*  x  Dark Theme  x  */

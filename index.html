@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js" ></script>
 </head>
-<body>
+<body class="dark-theme">
     <header class="flex">
         <div class="header-left flex">
             <img src="img/open-book.png" width="50px" alt="book-icon" class="logo">
@@ -16,7 +16,7 @@
         </div>
         <div class="header-right flex">
             <button class="button new-btn flex" onclick=handleAddBook()> <span style="font-size: 2em; margin-bottom: 2.258px;">+</span> <span>New Book</span></button>
-            <button class="button rm-btn">Dark Mode</button>
+            <button class="button" onclick="toggleDarkMode()">Dark Mode</button>
         </div>
     </header>
     <main>
@@ -75,6 +75,23 @@
             </div>
            
             <input class='button submit-btn' type="submit" value="Submit">
+        </form>
+
+    </div>
+
+    <div class="form-popup hidden" id="edit-form">
+        <form class="form-container" id="edit-form-container">
+            <h3>Edit Book</h3>
+           
+            <input type="text" placeholder="Title" name="book-title" id='book-title-edit' required>
+
+            <input type="text" placeholder="Author" name="book-author" id="book-author-edit" required>
+   
+            <input type="text" placeholder="Pages" name="book-pages" id="book-pages-edit"  required>
+
+            <!-- <input type="file" name="book-cover" id="book-cover" accept="image/png, image/jpg"> -->
+
+            <input class='button submit-btn' type="submit" value="Edit">
         </form>
 
     </div>
