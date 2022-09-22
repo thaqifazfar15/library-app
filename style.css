@@ -122,12 +122,12 @@ main > .book-container > div:hover {
 }
 
 main > .book-container > div > img {
-  max-height: 22em;
+  height: 22em;
   width: 15.5em;
   object-fit: cover;
   border: 2px solid rgb(54, 39, 39);
   animation-duration: 2s;
-  transition: max-height 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out;
 }
 
 .book-container > div > .book-info {
@@ -269,6 +269,39 @@ body.dark-theme .form-container {
 body.dark-theme .form-container > input {
   background-color: #595f63;
   color: #efefef;
+}
+
+.form-container > label {
+  background-color: #e9e9ed;
+  cursor: pointer;
+  font-size: 0.8em;
+  color: black;
+  padding: 0.5em 2em;
+  border-radius: 8px;
+}
+
+.form-container > label:hover {
+  background-color: #dadada;
+}
+
+.form-container > label:active {
+  background-color: #c7c7c7;
+}
+
+body.dark-theme .form-container > label {
+  background-color: #595f63;
+  color: #c7c7c7;
+}
+
+body.dark-theme .form-container > label:hover {
+  background-color: #4f565a;
+}
+body.dark-theme .form-container > label:active {
+  background-color: #454c50;
+}
+
+.form-container > label > #book-cover {
+  display: none;
 }
 
 .form-container > input::placeholder {

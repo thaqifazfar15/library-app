@@ -1,14 +1,14 @@
 let myLibrary = [];
 
-function Book(title, author, pages, isRead) {
+function Book(title, author, pages, isRead, img) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
-  // this.img = img;
+  this.img = img;
 }
 
-const Naruto = new Book("Naruto", "Kishimoto", "240", true);
+const Naruto = new Book("Naruto", "Kishimoto", "240", true, "");
 addBookToLibrary(Naruto);
 
 function addBookToLibrary(book) {
@@ -55,7 +55,9 @@ function createBookCards(book, indexNumber) {
   divMain.dataset.indexNumber = indexNumber;
 
   let html = `
-  <img class="book-img" src="img/naurto-cover.webp" alt="">
+  <img class="book-img" src="${
+    book.img == "" ? "img/naurto-cover.webp" : book.img
+  }" alt="">
   <div class="book-info flex">
       <div class="book-info-left flex">
           <h3>${book.title}</h3>
@@ -94,7 +96,9 @@ formContainer[0].addEventListener("submit", (e) => {
   const bookAuthor = document.getElementById("book-author");
   const bookPages = document.getElementById("book-pages");
   const bookIsRead = document.getElementById("book-is-read");
+  const bookCover = document.getElementById("book-cover");
 
+  // do nothing if field is empty
   if (
     (bookTitle.value == "") |
     (bookAuthor.value == "") |
@@ -107,7 +111,8 @@ formContainer[0].addEventListener("submit", (e) => {
     bookTitle.value,
     bookAuthor.value,
     bookPages.value,
-    bookIsRead.checked
+    bookIsRead.checked,
+    bookCover.value
   );
 
   addBookToLibrary(newBook);
@@ -118,6 +123,7 @@ formContainer[0].addEventListener("submit", (e) => {
   bookAuthor.value = "";
   bookPages.value = "";
   bookIsRead.checked = false;
+  bookCover.value = "";
 
   turnOffOverlay();
 });
@@ -127,13 +133,13 @@ const bookCover = document.getElementsByClassName("book-img");
 //show book cards with image
 function showImage() {
   for (let i = 0; i < bookCover.length; i++) {
-    bookCover[i].style.maxHeight = "22em";
+    bookCover[i].style.height = "22em";
   }
 }
 
 function hideImage() {
   for (let i = 0; i < bookCover.length; i++) {
-    bookCover[i].style.maxHeight = "0";
+    bookCover[i].style.height = "0";
   }
 }
 
