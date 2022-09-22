@@ -201,8 +201,13 @@ function handleEditButton(button) {
   document.getElementById("overlay").classList.toggle("show");
 }
 
-function toggleDarkMode() {
+function toggleDarkMode(button) {
   document.body.classList.toggle("dark-theme");
+
+  button.innerText == "Dark Mode"
+    ? (button.innerText = "Light Mode")
+    : (button.innerText = "Dark Mode");
+
   currentLogo = document.getElementsByClassName("logo")[0];
   currentLogo.src.toString().includes("img/open-book.png")
     ? (currentLogo.src = "img/open-book-dark.png")
